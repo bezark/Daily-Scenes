@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxaoobs7ebcx5"]
+
+[ext_resource type="Shader" uid="uid://nxkmefhrio5d" path="res://1/marble.tres" id="1_2gqrx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gjdxe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ahfum"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8rwo"]
+render_priority = 0
+shader = ExtResource("1_2gqrx")
+
+[sub_resource type="SphereMesh" id="SphereMesh_g8k67"]
+
+[node name="Marble" type="RigidBody3D"]
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_gjdxe")
+gravity_scale = 0.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_ahfum")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_t8rwo")
+mesh = SubResource("SphereMesh_g8k67")

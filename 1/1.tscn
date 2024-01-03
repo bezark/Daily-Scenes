@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2qgmdr56dj0b"]
+
+[ext_resource type="Shader" uid="uid://bqg5hl5068hym" path="res://1/1.tres" id="1_bho71"]
+[ext_resource type="Script" path="res://1/Marbles.gd" id="2_3fwwj"]
+[ext_resource type="PackedScene" uid="uid://cxaoobs7ebcx5" path="res://1/marble.tscn" id="3_nur5g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_njuv2"]
+sky_top_color = Color(0.592157, 0.345098, 0.572549, 1)
+sky_horizon_color = Color(0.836275, 0.614706, 0.731373, 1)
+ground_bottom_color = Color(0.752941, 0.113725, 0.352941, 1)
+ground_horizon_color = Color(0.836275, 0.614706, 0.731373, 1)
+
+[sub_resource type="Sky" id="Sky_w1ob3"]
+sky_material = SubResource("ProceduralSkyMaterial_njuv2")
+
+[sub_resource type="Environment" id="Environment_30gam"]
+background_mode = 2
+sky = SubResource("Sky_w1ob3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ws7iy"]
+render_priority = 0
+shader = ExtResource("1_bho71")
+shader_parameter/ColorParameter = Color(0.152941, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mvnc"]
+render_priority = 0
+shader = ExtResource("1_bho71")
+shader_parameter/ColorParameter = Color(0.152941, 1, 1, 1)
+
+[node name="1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_30gam")
+
+[node name="Bowl" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_ws7iy")
+snap = 1e-06
+use_collision = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Bowl"]
+radius = 0.594269
+radial_segments = 64
+rings = 64
+material = SubResource("ShaderMaterial_7mvnc")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Bowl"]
+operation = 2
+radius = 0.509939
+radial_segments = 64
+rings = 64
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Bowl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0148315, 0.333885, 0.0106506)
+operation = 2
+size = Vector3(1.23865, 0.634644, 1.36322)
+
+[node name="Marbles" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("2_3fwwj")
+number_of_marbles = 200
+
+[node name="Marble" parent="Marbles" instance=ExtResource("3_nur5g")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.956702, 0.29107, 0, -0.29107, 0.956702, 0, 1.15564, 0.610946)
