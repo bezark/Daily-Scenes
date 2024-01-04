@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlj8vi8yyjley"]
+
+[ext_resource type="Script" path="res://2/Item.gd" id="1_ouu27"]
+
+[node name="Item" type="ColorRect" groups=["Item"]]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.384314, 0.364706, 0.345098, 1)
+script = ExtResource("1_ouu27")
+title = "Robert Dog"
+cost = 20
+slots = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Thing
+"
+horizontal_alignment = 1
+
+[node name="Size" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Size
+"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Cost"
+horizontal_alignment = 1

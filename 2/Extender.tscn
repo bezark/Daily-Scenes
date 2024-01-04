@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://drhqyoit0h756"]
+
+[ext_resource type="Script" path="res://2/Extender.gd" id="1_eokh8"]
+
+[node name="Extender" type="ColorRect"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_eokh8")
