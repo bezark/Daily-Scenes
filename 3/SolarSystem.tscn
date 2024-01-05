@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnodcw0kgdcbp"]
+
+[ext_resource type="Texture2D" uid="uid://c8xly6obg7lg" path="res://3/Space Background(2).png" id="1_03f3l"]
+[ext_resource type="PackedScene" uid="uid://mbol2ul6v0fo" path="res://3/planet.tscn" id="2_2as6j"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4rc7c"]
+panorama = ExtResource("1_03f3l")
+
+[sub_resource type="Sky" id="Sky_4ntfy"]
+sky_material = SubResource("PanoramaSkyMaterial_4rc7c")
+
+[sub_resource type="Environment" id="Environment_ibpbs"]
+background_mode = 2
+sky = SubResource("Sky_4ntfy")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkoup"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+clearcoat_enabled = true
+
+[node name="SolarSystem" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 159)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ibpbs")
+
+[node name="Bodies" type="Node3D" parent="."]
+
+[node name="Star" type="Node3D" parent="Bodies"]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Bodies/Star"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+radial_segments = 64
+rings = 64
+material = SubResource("StandardMaterial3D_hkoup")
+
+[node name="Planet" parent="Bodies" instance=ExtResource("2_2as6j")]
+distance = 4.0
+size = 1.0
+speed = 0.5
+
+[node name="Planet2" parent="Bodies" instance=ExtResource("2_2as6j")]
+transform = Transform3D(-9.64326, 0, -2.65041, 0, 10, 0, 2.65041, 0, -9.64326, 0, 0, 0)
+distance = 3.0
+size = 4.0
+speed = 0.1
+
+[node name="Planet3" parent="Bodies" instance=ExtResource("2_2as6j")]
+transform = Transform3D(-7.94134, 0, -6.07518, 0, 10, 0, 6.07518, 0, -7.94134, 0, 0, 0)
+distance = 7.0
+size = 2.0
+speed = 0.2
+
+[node name="Planet4" parent="Bodies" instance=ExtResource("2_2as6j")]
+transform = Transform3D(7.70578, 0, -6.37188, 0, 10, 0, 6.37188, 0, 7.70578, 0, 0, 0)
+distance = 8.0
+size = 5.0
+speed = 0.5

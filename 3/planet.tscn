@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://mbol2ul6v0fo"]
+
+[ext_resource type="Script" path="res://3/planet.gd" id="1_m4ii8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnd4n"]
+albedo_color = Color(0.288997, 0.00674373, 0.0392706, 1)
+
+[node name="Planet" type="Node3D"]
+script = ExtResource("1_m4ii8")
+
+[node name="Body" type="CSGSphere3D" parent="."]
+transform = Transform3D(-0.41398, 0.571677, -0.708381, -0.809937, -0.586516, 2.98023e-08, -0.415478, 0.573745, 0.705829, -0.0188007, 0, -0.0144354)
+radial_segments = 64
+rings = 56
+material = SubResource("StandardMaterial3D_tnd4n")
