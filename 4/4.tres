@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SceneMetadata" load_steps=3 format=3 uid="uid://dt0yf65wc31p1"]
+
+[ext_resource type="PackedScene" uid="uid://widw48pwfvaq" path="res://4/4 Chiron Pointer.tscn" id="1_f8jyo"]
+[ext_resource type="Script" path="res://4/scene_metadata.gd" id="1_sl3cl"]
+
+[resource]
+script = ExtResource("1_sl3cl")
+title = "Meta!"
+scene = ExtResource("1_f8jyo")
+description = ""
+number = 4
+scrore = 0

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SceneMetadata" load_steps=3 format=3 uid="uid://dex87ipgb3s28"]
+
+[ext_resource type="PackedScene" uid="uid://i33k2t3nsal0" path="res://2/Inventory.tscn" id="1_8vpr5"]
+[ext_resource type="Script" path="res://4/scene_metadata.gd" id="1_ors4a"]
+
+[resource]
+script = ExtResource("1_ors4a")
+title = "Inventory"
+scene = ExtResource("1_8vpr5")
+description = ""
+number = 2
+scrore = 0
