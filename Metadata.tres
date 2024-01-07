@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="AllScenesMetadata" load_steps=9 format=3 uid="uid://dqu2c5077tjrd"]
+
+[ext_resource type="Resource" uid="uid://g85o4651lewi" path="res://1/1-meta.tres" id="1_75eil"]
+[ext_resource type="Script" path="res://4/100_Days_metadata.gd" id="1_l57a4"]
+[ext_resource type="Resource" uid="uid://dex87ipgb3s28" path="res://2/2.tres" id="2_6v88v"]
+[ext_resource type="Resource" uid="uid://dcliuicahylpb" path="res://3/3.tres" id="3_bmdn8"]
+[ext_resource type="Resource" uid="uid://dt0yf65wc31p1" path="res://4/4.tres" id="4_lmckv"]
+[ext_resource type="Script" path="res://4/scene_metadata.gd" id="5_eovd7"]
+[ext_resource type="PackedScene" uid="uid://cy6pxlmgv2yii" path="res://5/DemoLevel.tscn" id="5_h4gxa"]
+
+[sub_resource type="Resource" id="Resource_s55qg"]
+script = ExtResource("5_eovd7")
+number = 5
+title = ""
+scene = ExtResource("5_h4gxa")
+description = ""
+scrore = 0
+
+[resource]
+script = ExtResource("1_l57a4")
+current_scene = 0
+Scenes = Array[ExtResource("5_eovd7")]([ExtResource("1_75eil"), ExtResource("2_6v88v"), ExtResource("3_bmdn8"), ExtResource("4_lmckv"), SubResource("Resource_s55qg")])

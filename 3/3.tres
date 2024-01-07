@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_k4rc7")
+number = 3
 title = "Solar System"
 scene = ExtResource("1_a5c6e")
 description = ""
-number = 3
-scrore = 0
+scrore = 4

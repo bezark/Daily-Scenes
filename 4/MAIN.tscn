@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcq386bmql0bu"]
+[gd_scene load_steps=3 format=3 uid="uid://dcq386bmql0bu"]
 
 [ext_resource type="Script" path="res://4/MAIN.gd" id="1_0adqr"]
-[ext_resource type="Resource" uid="uid://g85o4651lewi" path="res://1/1-meta.tres" id="2_3lgyi"]
-[ext_resource type="Resource" uid="uid://dex87ipgb3s28" path="res://2/2.tres" id="3_r0r7l"]
-[ext_resource type="Resource" uid="uid://dcliuicahylpb" path="res://3/3.tres" id="4_d4a6u"]
-[ext_resource type="Resource" uid="uid://dt0yf65wc31p1" path="res://4/4.tres" id="5_18c04"]
+[ext_resource type="Resource" uid="uid://dqu2c5077tjrd" path="res://Metadata.tres" id="2_ufl6e"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0adqr")
-scene_resources = Array[Resource("res://4/scene_metadata.gd")]([ExtResource("2_3lgyi"), ExtResource("3_r0r7l"), ExtResource("4_d4a6u"), ExtResource("5_18c04")])
+scene_resources = ExtResource("2_ufl6e")
 
 [node name="Scene" type="Node" parent="."]
 

@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_ors4a")
+number = 2
 title = "Inventory"
 scene = ExtResource("1_8vpr5")
 description = ""
-number = 2
-scrore = 0
+scrore = 7

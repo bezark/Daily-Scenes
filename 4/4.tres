@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_sl3cl")
+number = 4
 title = "Meta!"
 scene = ExtResource("1_f8jyo")
 description = ""
-number = 4
-scrore = 0
+scrore = 7

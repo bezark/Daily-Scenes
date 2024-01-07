@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_b8ke6")
+number = 1
 title = "Bowl of Marbles"
 scene = ExtResource("1_6rpos")
 description = ""
-number = 1
-scrore = 0
+scrore = 6
