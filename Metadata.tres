@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AllScenesMetadata" load_steps=11 format=3 uid="uid://dqu2c5077tjrd"]
+[gd_resource type="Resource" script_class="AllScenesMetadata" load_steps=13 format=3 uid="uid://dqu2c5077tjrd"]
 
 [ext_resource type="Resource" uid="uid://g85o4651lewi" path="res://1/1-meta.tres" id="1_75eil"]
 [ext_resource type="Script" path="res://4/100_Days_metadata.gd" id="1_l57a4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://4/scene_metadata.gd" id="5_eovd7"]
 [ext_resource type="PackedScene" uid="uid://cy6pxlmgv2yii" path="res://5/DemoLevel.tscn" id="5_h4gxa"]
 [ext_resource type="PackedScene" uid="uid://bukmcha70uwsh" path="res://6/LukkyThirdPerson.tscn" id="7_h16x7"]
+[ext_resource type="PackedScene" uid="uid://siv3yvpjalnl" path="res://7/007.tscn" id="8_k0lrp"]
 
 [sub_resource type="Resource" id="Resource_s55qg"]
 resource_name = "5.tres"
@@ -27,7 +28,17 @@ scene = ExtResource("7_h16x7")
 description = ""
 scrore = 0
 
+[sub_resource type="Resource" id="Resource_dc4ln"]
+resource_name = "7.tres"
+script = ExtResource("5_eovd7")
+number = 7
+title = "007"
+scene = ExtResource("8_k0lrp")
+description = ""
+scrore = 0
+
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_l57a4")
-current_scene = 6
-Scenes = Array[ExtResource("5_eovd7")]([ExtResource("1_75eil"), ExtResource("2_6v88v"), ExtResource("3_bmdn8"), ExtResource("4_lmckv"), SubResource("Resource_s55qg"), SubResource("Resource_7dmw6")])
+current_scene = 7
+Scenes = Array[ExtResource("5_eovd7")]([ExtResource("1_75eil"), ExtResource("2_6v88v"), ExtResource("3_bmdn8"), ExtResource("4_lmckv"), SubResource("Resource_s55qg"), SubResource("Resource_7dmw6"), SubResource("Resource_dc4ln")])

@@ -1,0 +1,50 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://cy2d7vy263k1x"]
+
+[ext_resource type="Shader" path="res://7/007.gdshader" id="1_2slet"]
+
+[sub_resource type="Gradient" id="Gradient_47gjk"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.514852)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7cjd6"]
+gradient = SubResource("Gradient_47gjk")
+width = 1920
+height = 1920
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+repeat = 2
+
+[sub_resource type="Gradient" id="Gradient_dikn8"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_np4ni"]
+gradient = SubResource("Gradient_dikn8")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 0.994302)
+
+[sub_resource type="Gradient" id="Gradient_onwd5"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.585809)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_narkb"]
+noise_type = 3
+frequency = 0.0017
+fractal_octaves = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2exrr"]
+width = 1920
+height = 1080
+seamless = true
+color_ramp = SubResource("Gradient_onwd5")
+noise = SubResource("FastNoiseLite_narkb")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2slet")
+shader_parameter/depth_range = null
+shader_parameter/NOISE_MIXER = SubResource("NoiseTexture2D_2exrr")
+shader_parameter/BARRELL = SubResource("GradientTexture2D_7cjd6")
+shader_parameter/FADE = SubResource("GradientTexture2D_np4ni")
