@@ -9,9 +9,10 @@ extends Node
 func _ready():
 	advance_scene()
 
-func _unhandled_input(event):
+func _input(event):
 	if event.is_action_pressed("Tab"):
 		advance_scene()
+
 
 func advance_scene():
 	if scene_resources.current_scene>scene_resources.Scenes.size()-1:

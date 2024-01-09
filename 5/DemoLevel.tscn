@@ -35,6 +35,9 @@ use_collision = true
 material = SubResource("StandardMaterial3D_w23w4")
 
 [node name="Player" parent="." instance=ExtResource("1_pvpv8")]
+base_speed = 5.0
+max_speed = 20.0
+sprint_duration = 5.0
 
 [node name="Things" type="Node3D" parent="."]
 

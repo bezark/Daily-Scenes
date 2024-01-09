@@ -12,7 +12,6 @@ var sprint_tween = null
 func _ready():
 	SPEED = base_speed
 
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

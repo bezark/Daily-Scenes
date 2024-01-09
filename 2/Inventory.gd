@@ -14,6 +14,7 @@ var filled = 0
 
 const ITEM = preload("res://2/item.tscn")
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	title_label.text = title
 	items = get_tree().get_nodes_in_group("Item")
 	for item in items:
