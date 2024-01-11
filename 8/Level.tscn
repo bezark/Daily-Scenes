@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://r6bek85f6iyf"]
+
+[ext_resource type="Texture2D" uid="uid://vn07b2x8e07l" path="res://6/textures/grids/Dark/texture_06.png" id="1_6ne8n"]
+[ext_resource type="Texture2D" uid="uid://b58xv1joypxo5" path="res://6/textures/grids/Orange/texture_09.png" id="2_bnjyp"]
+[ext_resource type="Texture2D" uid="uid://b2pbqtjxhrgra" path="res://6/textures/grids/Purple/texture_11.png" id="3_3s5wf"]
+[ext_resource type="Texture2D" uid="uid://bpxss45gigbag" path="res://6/textures/grids/Purple/texture_13.png" id="4_wheby"]
+[ext_resource type="PackedScene" uid="uid://b6ph2ylkacb78" path="res://6/player.tscn" id="5_gdnoj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rl268"]
+sky_top_color = Color(0.0705882, 0.290196, 0.54902, 1)
+sky_horizon_color = Color(0.534314, 0.62549, 0.689216, 1)
+ground_bottom_color = Color(0.0666667, 0.211765, 0.207843, 1)
+ground_horizon_color = Color(0.534314, 0.62549, 0.689216, 1)
+
+[sub_resource type="Sky" id="Sky_p4ftw"]
+sky_material = SubResource("ProceduralSkyMaterial_rl268")
+
+[sub_resource type="Environment" id="Environment_1idki"]
+background_mode = 2
+sky = SubResource("Sky_p4ftw")
+tonemap_mode = 2
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sua5t"]
+albedo_texture = ExtResource("1_6ne8n")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dv22"]
+albedo_texture = ExtResource("2_bnjyp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csjeh"]
+albedo_texture = ExtResource("3_3s5wf")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h66gd"]
+albedo_texture = ExtResource("4_wheby")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edgcu"]
+albedo_texture = ExtResource("3_3s5wf")
+uv1_triplanar = true
+
+[node name="Level" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1idki")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Map"]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_sua5t")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 5, 1, 0)
+material_override = SubResource("StandardMaterial3D_4dv22")
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 5, 1, 4)
+material_override = SubResource("StandardMaterial3D_4dv22")
+use_collision = true
+
+[node name="Ramp" type="CSGCombiner3D" parent="Map"]
+material_override = SubResource("StandardMaterial3D_csjeh")
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/Ramp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2)
+material_override = SubResource("StandardMaterial3D_h66gd")
+size = Vector3(2, 2, 2)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Ramp"]
+transform = Transform3D(-1.74846e-07, 0, -2, 0, 2, 0, 4, 0, -8.74228e-08, -1, 0.5, -1)
+material_override = SubResource("StandardMaterial3D_edgcu")
+polygon = PackedVector2Array(0, 0, 0, 1, 1, 0)
+
+[node name="Ramp2" type="CSGCombiner3D" parent="Map"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10)
+material_override = SubResource("StandardMaterial3D_csjeh")
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Map/Ramp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2)
+material_override = SubResource("StandardMaterial3D_h66gd")
+size = Vector3(2, 2, 2)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Ramp2"]
+transform = Transform3D(-1.74846e-07, 0, -2, 0, 2, 0, 4, 0, -8.74228e-08, -1, 0.5, -1)
+material_override = SubResource("StandardMaterial3D_edgcu")
+polygon = PackedVector2Array(0, 0, 0, 1, 1, 0)
+
+[node name="Player" parent="." instance=ExtResource("5_gdnoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9)

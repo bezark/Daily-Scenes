@@ -12,12 +12,12 @@ sky_horizon_color = Color(0.534314, 0.62549, 0.689216, 1)
 ground_bottom_color = Color(0.0666667, 0.211765, 0.207843, 1)
 ground_horizon_color = Color(0.534314, 0.62549, 0.689216, 1)
 
-[sub_resource type="Sky" id="Sky_p4ftw"]
+[sub_resource type="Sky" id="Sky_fs5h5"]
 sky_material = SubResource("ProceduralSkyMaterial_dpsoe")
 
 [sub_resource type="Environment" id="Environment_mt53f"]
 background_mode = 2
-sky = SubResource("Sky_p4ftw")
+sky = SubResource("Sky_fs5h5")
 tonemap_mode = 2
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
